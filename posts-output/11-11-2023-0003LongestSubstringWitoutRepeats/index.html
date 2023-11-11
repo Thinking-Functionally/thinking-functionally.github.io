@@ -2,12 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Thinking Functionally</title>
+    <title>Thinking Functionally: 0003 Longest Substring Without Repeats</title>
     
-    <meta name="description" content="Discovering the Functional Algorithms with Clojure">
-    <meta name="keywords" content="">
-    
-    <link rel="canonical" href="http://thinkingfunctionally.com/blog/">
+<meta name="keywords" content="cryogen">
+
+<meta name="description" content="incorrect">
+
+<meta property="og:description" content="incorrect">
+
+<meta property="og:url" content="http://thinkingfunctionally.com/blog/posts-output/11-11-2023-0003LongestSubstringWitoutRepeats/" />
+<meta property="og:title" content="0003 Longest Substring Without Repeats" />
+<meta property="og:type" content="article" />
+
+    <link rel="canonical" href="http://thinkingfunctionally.com/blog/posts-output/11-11-2023-0003LongestSubstringWitoutRepeats/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
           type="text/css">
@@ -32,7 +39,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li  class="active" ><a href="/blog/">Home</a></li>
+                <li ><a href="/blog/">Home</a></li>
                 <li
                 ><a href="/blog/archives/">Archives</a></li>
                 
@@ -56,22 +63,39 @@
         <div class="col-lg-6">12 May 17</div>
         
     </div>
-    <h2>1877 Minimize Maximum Pair Sum In Array</h2>
+    <h2>0003 Longest Substring Without Repeats</h2>
 </div>
 <div>
     
-    <pre><code class="clojure">(defn min-pair-sum [nums]
-  (let [sorted-nums (sort nums)
-        n (count sorted-nums)]
-    (loop [i 0
-           j (dec n)
-           max-pair-sum 0]
-      (if (&lt; i j)
-        (recur (inc i) (dec j) (max max-pair-sum (+ (nth sorted-nums i) (nth sorted-nums j))))
-        max-pair-sum))))
+    <p>incorrect</p><pre><code class="clojure">(defn longest-unique-substring [str]
+  (let [n (count str)
+        res (atom 0)
+        last-index (vec (repeat 256 -1))
+        i (atom 0)]
+    (doseq [j (range n)]
+      (reset! i (max @i (+ (@last-index (get str j)) 1)))
+      (reset! res (max @res (- j @i 1)))
+      (assoc! last-index (int (get str j)) j))
+    @res))
 
-(println (min-pair-sum [3 5 2 3])) ; Should print 7
-</code></pre><p>The <code>min-pair-sum</code> function takes a vector of integers <code>nums</code> as input. It first sorts the elements of the <code>nums</code> vector using the <code>sort</code> function. Then, it initializes variables <code>i</code> and <code>j</code> to represent the start and end indices of the sorted vector, respectively. The variable <code>max-pair-sum</code> is initialized to 0.</p><p>The function uses a loop (implemented with <code>recur</code>) to iterate over the sorted vector from both ends towards the center. Inside the loop, it calculates the sum of the elements at indices <code>i</code> and <code>j</code> and updates the <code>max-pair-sum</code> if the current sum is greater than the previous maximum. The loop continues until <code>i</code> becomes greater than or equal to <code>j</code>.</p><p>Finally, the function returns the minimum pair sum <code>max-pair-sum</code>.</p><p>The time complexity of this solution is O(n log n), where n is the number of elements in the input vector <code>nums</code>. This is because the <code>sort</code> operation has a time complexity of O(n log n) and the subsequent loop iterates over the sorted vector, which takes O(n) time. Therefore, the dominant factor is the sorting operation, resulting in an overall time complexity of O(n log n).</p><p>The space complexity of this solution is O(n) because we create a sorted copy of the input vector using <code>sort</code>, which requires additional space.</p>
+(let [str "geeksforgeeks"]
+  (println "The input string is" str)
+  (let [len (longest-unique-substring str)]
+    (println "The length of the longest non-repeating character substring is" len)))
+    
+(defn -main [&amp; args]
+  (let [s "abcabcbb"]
+    (println (str s " : " (length-of-longest-substring s))))
+  
+  (let [s "bbbbb"]
+    (println (str s " : " (length-of-longest-substring s))))
+  
+  (let [s "bbabcdb"]
+    (println (str s " : " (length-of-longest-substring s))))
+  
+  (when-let [s (first args)]
+    (println (str s " : " (length-of-longest-substring s)))))
+</code></pre><p>Now let's analyze the time and space complexity of the Clojure code:</p><p>Time Complexity Analysis:</p><ol><li>The code has a single loop that iterates over each character of the input string using <code>dotimes</code>. The loop runs for <code>n</code> iterations, where <code>n</code> is the length of the string.</li><li>Inside the loop, the operations of accessing and updating elements in the <code>m</code> array, as well as performing comparisons and calculations, all take constant time O(1).</li><li>Therefore, the overall time complexity is O(n), where n is the length of the input string.</li></ol><p>Space Complexity Analysis:</p><ol><li>The code uses additional space for the <code>m</code> array, which has a fixed size of 256 elements. Therefore, it requires constant space O(1).</li><li>The variables <code>n</code>, <code>max-len</code>, and <code>last-repeat-pos</code> require constant space as well.</li><li>Therefore, the overall space complexity is O(1).</li></ol><p>In summary, the time complexity of the <code>length-of-longest-substring</code> function is O(n), and the space complexity is O(1), where n is the length of the input string.</p>
 </div>
 
 <div id="post-tags">
@@ -82,12 +106,14 @@
 </div>
 
 
-    
-
     <div id="prev-next">
         
         
     </div>
+
+    
+
+
 </div>
 
             </div>
@@ -106,7 +132,7 @@
                     <h3>Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/blog/posts-output/11-11-2023-1881MinimizeMaximumPairSumInArray/">1877 Minimize Maximum Pair Sum In Array</a></li>
+                        <li><a href="/blog/posts-output/11-11-2023-0003LongestSubstringWitoutRepeats/">0003 Longest Substring Without Repeats</a></li>
                         
                     </ul>
                 </div>
