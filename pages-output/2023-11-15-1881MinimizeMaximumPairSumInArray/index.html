@@ -2,18 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Thinking Functionally: About</title>
+    <title>Thinking Functionally: Minimize Maximum Pair Sum in Array</title>
     
 
-<meta name="description" content="Write something about somethingwow wow wow">
+<meta name="description" content="The min-pair-sum function takes a vector of integers nums as input. It first sorts the elements of the nums vector using the sort function. Then, it initializes variables i and j to represent the start and end indices of the sorted vector, respectively. The variable max-pair-sum is initialized to 0.">
 
-<meta property="og:description" content="Write something about somethingwow wow wow">
+<meta property="og:description" content="The min-pair-sum function takes a vector of integers nums as input. It first sorts the elements of the nums vector using the sort function. Then, it initializes variables i and j to represent the start and end indices of the sorted vector, respectively. The variable max-pair-sum is initialized to 0.">
 
-<meta property="og:url" content="http://thinkingfunctionally.com/blog/pages-output/about/" />
-<meta property="og:title" content="About" />
+<meta property="og:url" content="http://thinkingfunctionally.com/blog/pages-output/2023-11-15-1881MinimizeMaximumPairSumInArray/" />
+<meta property="og:title" content="Minimize Maximum Pair Sum in Array" />
 <meta property="og:type" content="article" />
 
-    <link rel="canonical" href="http://thinkingfunctionally.com/blog/pages-output/about/">
+    <link rel="canonical" href="http://thinkingfunctionally.com/blog/pages-output/2023-11-15-1881MinimizeMaximumPairSumInArray/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
           type="text/css">
@@ -42,11 +42,6 @@
                 <li
                 ><a href="/blog/archives/">Archives</a></li>
                 
-                <li
-                 class="active" >
-                <a href="/blog/pages-output/about/">About</a>
-                </li>
-                
                 <li><a href="/blog/feed.xml">RSS</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -63,20 +58,25 @@
                 
 <div id="custom-page">
     <div id="page-header">
-        <h2>About</h2>
+        <h2>Minimize Maximum Pair Sum in Array</h2>
     </div>
     
-    <h2 id="write-something-about-something">Write something about something</h2><p>wow wow wow</p>
+    <pre><code class="clojure">(defn min-pair-sum [nums]
+  (let [sorted-nums (sort nums)
+        n (count sorted-nums)]
+    (loop [i 0
+           j (dec n)
+           max-pair-sum 0]
+      (if (&lt; i j)
+        (recur (inc i) (dec j) (max max-pair-sum (+ (nth sorted-nums i) (nth sorted-nums j))))
+        max-pair-sum))))
+
+(println (min-pair-sum [3 5 2 3])) ; Should print 7
+</code></pre><p>The <code>min-pair-sum</code> function takes a vector of integers <code>nums</code> as input. It first sorts the elements of the <code>nums</code> vector using the <code>sort</code> function. Then, it initializes variables <code>i</code> and <code>j</code> to represent the start and end indices of the sorted vector, respectively. The variable <code>max-pair-sum</code> is initialized to 0.</p><p>The function uses a loop (implemented with <code>recur</code>) to iterate over the sorted vector from both ends towards the center. Inside the loop, it calculates the sum of the elements at indices <code>i</code> and <code>j</code> and updates the <code>max-pair-sum</code> if the current sum is greater than the previous maximum. The loop continues until <code>i</code> becomes greater than or equal to <code>j</code>.</p><p>Finally, the function returns the minimum pair sum <code>max-pair-sum</code>.</p><p>The time complexity of this solution is O(n log n), where n is the number of elements in the input vector <code>nums</code>. This is because the <code>sort</code> operation has a time complexity of O(n log n) and the subsequent loop iterates over the sorted vector, which takes O(n) time. Therefore, the dominant factor is the sorting operation, resulting in an overall time complexity of O(n log n).</p><p>The space complexity of this solution is O(n) because we create a sorted copy of the input vector using <code>sort</code>, which requires additional space.</p>
 
     <div id="prev-next">
         
-        <a href="/blog/pages-output/2023-11-15-1881MinimizeMaximumPairSumInArray/">&laquo; Minimize Maximum Pair Sum in Array</a>
         
-        
-        ||
-        
-        
-        <a href="/blog/pages-output/another-page/">Another Page &raquo;</a>
         
     </div>
 </div>
@@ -91,50 +91,10 @@
                     <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li>
                     <li><a href="https://carmen.la/blog/archives">Carmen's Blog</a></li>
                     
-                    <li><a href="/blog/pages-output/2023-11-11-0001twosum/">Two Sum</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-16-0002addtwonumber/">Add Two Number</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-12-0004medianOfTwoSortedArrays/">Two Sorted Arrays</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-13-0561ArrayPartition/">Array Partition</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-17-0003LongestSubstringWitoutRepeats/">Longest Substring Without Repeats</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-14-1877MinimizeMaximumPairSumInArray/">Minimize Maximum Pair Sum in Array</a></li>
-                    
                     <li><a href="/blog/pages-output/2023-11-15-1881MinimizeMaximumPairSumInArray/">Minimize Maximum Pair Sum in Array</a></li>
-                    
-                    <li><a href="/blog/pages-output/another-page/">Another Page</a></li>
                     
                 </ul>
                 
-                <div id="recent">
-                    <h3>Recent Posts</h3>
-                    <ul>
-                        
-                        <li><a href="/blog/posts-output/2020-12-03-docs/">Quick Start Guide</a></li>
-                        
-                        <li><a href="/blog/posts-output/2014-11-04-second-post/">Yet Another Post</a></li>
-                        
-                        <li><a href="/blog/posts-output/2014-03-10-first-post/">A Post</a></li>
-                        
-                    </ul>
-                </div>
-                
-                
-                <div id="tags">
-                    <h3>Tags</h3>
-                    <ul>
-                        
-                        <li><a href="/blog/tags-output/cryogen/">cryogen</a></li>
-                        
-                        <li><a href="/blog/tags-output/very%20fetch/">very fetch</a></li>
-                        
-                        <li><a href="/blog/tags-output/not%20fetch/">not fetch</a></li>
-                        
-                    </ul>
-                </div>
                 
             </div>
         </div>

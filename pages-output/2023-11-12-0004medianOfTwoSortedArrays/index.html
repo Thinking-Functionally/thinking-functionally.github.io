@@ -2,19 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Thinking Functionally: 0004 Median of Two Sorted Arrays</title>
+    <title>Thinking Functionally: Two Sorted Arrays</title>
     
-<meta name="keywords" content="cryogen,very fetch,not fetch">
 
 <meta name="description" content="Now let&#39;s analyze the time complexity of the code:">
 
 <meta property="og:description" content="Now let&#39;s analyze the time complexity of the code:">
 
-<meta property="og:url" content="http://thinkingfunctionally.com/blog/posts-output/11-11-2023-0004medianOfTwoSortedArrays/" />
-<meta property="og:title" content="0004 Median of Two Sorted Arrays" />
+<meta property="og:url" content="http://thinkingfunctionally.com/blog/pages-output/2023-11-12-0004medianOfTwoSortedArrays/" />
+<meta property="og:title" content="Two Sorted Arrays" />
 <meta property="og:type" content="article" />
 
-    <link rel="canonical" href="http://thinkingfunctionally.com/blog/posts-output/11-11-2023-0004medianOfTwoSortedArrays/">
+    <link rel="canonical" href="http://thinkingfunctionally.com/blog/pages-output/2023-11-12-0004medianOfTwoSortedArrays/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
           type="text/css">
@@ -43,11 +42,6 @@
                 <li
                 ><a href="/blog/archives/">Archives</a></li>
                 
-                <li
-                >
-                <a href="/blog/pages-output/about/">About</a>
-                </li>
-                
                 <li><a href="/blog/feed.xml">RSS</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -62,15 +56,10 @@
         <div class="col-lg-9">
             <div id="content">
                 
-<div id="post">
-    <div class="post-header">
-    <div id="post-meta" class="row">
-        <div class="col-lg-6">12 May 17</div>
-        
+<div id="custom-page">
+    <div id="page-header">
+        <h2>Two Sorted Arrays</h2>
     </div>
-    <h2>0004 Median of Two Sorted Arrays</h2>
-</div>
-<div>
     
     <pre><code class="clojure">(ns leetcode.test)
 
@@ -133,28 +122,14 @@
 
 (println "Median is 9 =" (find-median a11 a21))
 </code></pre><p>Now let's analyze the time complexity of the code:</p><p>The code uses a binary search algorithm to find the median of the two sorted arrays. The binary search is performed on the smaller array, and at each step, the search space is halved. Therefore, the time complexity of the binary search part is O(log min(n, m)), where n and m are the lengths of the input arrays A and B, respectively.</p><p>Within the binary search loop, the code performs constant-time operations such as array indexing and comparisons.</p><p>Overall, the time complexity of the code is O(log min(n, m)), where n and m are the lengths of the input arrays A and B, respectively.</p><p>The space complexity of the code is O(1) because it uses a constant amount of additional space to store variables and does not depend on the size of the input arrays.</p><p>It's important to note that the analysis assumes that the input arrays are already sorted. If the arrays are not sorted, additional operations would be required to sort them, which would increase the time complexity accordingly.</p>
-</div>
-
-<div id="post-tags">
-    <b>Tags: </b>
-    
-    <a href="/blog/tags-output/cryogen/">cryogen</a>
-    
-</div>
-
 
     <div id="prev-next">
         
-        <a href="/blog/posts-output/11-11-2023-0561ArrayPartition/">&laquo; 0561 Array Partition</a>
+        <a href="/blog/pages-output/2023-11-11-0001twosum/">&laquo; Two Sum</a>
         
         
-        <a class="right" href="/blog/posts-output/11-11-2023-1877MinimizeMaximumPairSumInArray/">1877 Minimize Maximum Pair Sum In Array &raquo;</a>
         
     </div>
-
-    
-
-
 </div>
 
             </div>
@@ -169,48 +144,10 @@
                     
                     <li><a href="/blog/pages-output/2023-11-11-0001twosum/">Two Sum</a></li>
                     
-                    <li><a href="/blog/pages-output/2023-11-16-0002addtwonumber/">Add Two Number</a></li>
-                    
                     <li><a href="/blog/pages-output/2023-11-12-0004medianOfTwoSortedArrays/">Two Sorted Arrays</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-13-0561ArrayPartition/">Array Partition</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-17-0003LongestSubstringWitoutRepeats/">Longest Substring Without Repeats</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-14-1877MinimizeMaximumPairSumInArray/">Minimize Maximum Pair Sum in Array</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-15-1881MinimizeMaximumPairSumInArray/">Minimize Maximum Pair Sum in Array</a></li>
-                    
-                    <li><a href="/blog/pages-output/another-page/">Another Page</a></li>
                     
                 </ul>
                 
-                <div id="recent">
-                    <h3>Recent Posts</h3>
-                    <ul>
-                        
-                        <li><a href="/blog/posts-output/2020-12-03-docs/">Quick Start Guide</a></li>
-                        
-                        <li><a href="/blog/posts-output/2014-11-04-second-post/">Yet Another Post</a></li>
-                        
-                        <li><a href="/blog/posts-output/2014-03-10-first-post/">A Post</a></li>
-                        
-                    </ul>
-                </div>
-                
-                
-                <div id="tags">
-                    <h3>Tags</h3>
-                    <ul>
-                        
-                        <li><a href="/blog/tags-output/cryogen/">cryogen</a></li>
-                        
-                        <li><a href="/blog/tags-output/very%20fetch/">very fetch</a></li>
-                        
-                        <li><a href="/blog/tags-output/not%20fetch/">not fetch</a></li>
-                        
-                    </ul>
-                </div>
                 
             </div>
         </div>
