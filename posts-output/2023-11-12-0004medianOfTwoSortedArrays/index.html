@@ -2,18 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Thinking Functionally: Array Partition</title>
+    <title>Thinking Functionally: </title>
     
 
-<meta name="description" content="In this Clojure version, we define a function array-pair-sum that takes an array of integers nums as input and returns the maximum sum of the minimum elements in pairs.">
-
-<meta property="og:description" content="In this Clojure version, we define a function array-pair-sum that takes an array of integers nums as input and returns the maximum sum of the minimum elements in pairs.">
-
-<meta property="og:url" content="http://thinkingfunctionally.com/blog/pages-output/2023-11-13-0561ArrayPartition/" />
-<meta property="og:title" content="Array Partition" />
+<meta property="og:url" content="http://thinkingfunctionally.com/blog/posts-output/2023-11-12-0004medianOfTwoSortedArrays/" />
+<meta property="og:title" content="" />
 <meta property="og:type" content="article" />
 
-    <link rel="canonical" href="http://thinkingfunctionally.com/blog/pages-output/2023-11-13-0561ArrayPartition/">
+    <link rel="canonical" href="http://thinkingfunctionally.com/blog/posts-output/2023-11-12-0004medianOfTwoSortedArrays/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
           type="text/css">
@@ -63,27 +59,14 @@
                 
 <div id="custom-page">
     <div id="page-header">
-        <h2>Array Partition</h2>
+        <h2></h2>
     </div>
     
-    <pre><code class="clojure">(ns array-partition)
-
-(defn array-pair-sum [nums]
-  (let [sorted-nums (sort nums)]
-    (reduce + (map first (partition-all 2 sorted-nums)))))
-
-(println (array-pair-sum [3 5 2 3])) ; Should print 7
-</code></pre><p>In this Clojure version, we define a function <code>array-pair-sum</code> that takes an array of integers <code>nums</code> as input and returns the maximum sum of the minimum elements in pairs.</p><p>The function first sorts the input array <code>nums</code> using the <code>sort</code> function and assigns the sorted array to <code>sorted-nums</code>.</p><p>Then, using <code>partition-all 2 sorted-nums</code>, we partition <code>sorted-nums</code> into pairs. Each pair is a vector of two elements.</p><p>We use the <code>map</code> function to extract the first element (minimum value) from each pair. The result is a sequence of minimum values.</p><p>Finally, we use <code>reduce +</code> to sum up all the minimum values and return the result.</p><p>The code example prints the result of calling <code>array-pair-sum</code> with the input array <code>[1 2 3 4]</code>, which corresponds to the example given in the original Java code. The expected output is 4.</p>
+    
 
     <div id="prev-next">
         
-        <a href="/blog/pages-output/2023-11-12-0004medianOfTwoSortedArrays/">&laquo; Two Sorted Arrays</a>
         
-        
-        ||
-        
-        
-        <a href="/blog/pages-output/2023-11-17-0003LongestSubstringWitoutRepeats/">Longest Substring Without Repeats &raquo;</a>
         
     </div>
 </div>
@@ -98,20 +81,6 @@
                     <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li>
                     <li><a href="https://carmen.la/blog/archives">Carmen's Blog</a></li>
                     
-                    <li><a href="/blog/pages-output/2023-11-11-0001twosum/">Two Sum</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-16-0002addtwonumber/">Add Two Number</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-12-0004medianOfTwoSortedArrays/">Two Sorted Arrays</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-13-0561ArrayPartition/">Array Partition</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-17-0003LongestSubstringWitoutRepeats/">Longest Substring Without Repeats</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-14-1877MinimizeMaximumPairSumInArray/">Minimize Maximum Pair Sum in Array</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-15-1881MinimizeMaximumPairSumInArray/">Minimize Maximum Pair Sum in Array</a></li>
-                    
                     <li><a href="/blog/pages-output/another-page/">Another Page</a></li>
                     
                 </ul>
@@ -120,11 +89,11 @@
                     <h3>Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/blog/posts-output/2020-12-03-docs/">Quick Start Guide</a></li>
+                        <li><a href="/blog/posts-output/2023-11-11-0001twosum/">Two Sum</a></li>
                         
-                        <li><a href="/blog/posts-output/2014-11-04-second-post/">Yet Another Post</a></li>
+                        <li><a href="/blog/posts-output/2023-11-17-0003LongestSubstringWitoutRepeats/">Longest Substring Without Repeats</a></li>
                         
-                        <li><a href="/blog/posts-output/2014-03-10-first-post/">A Post</a></li>
+                        <li><a href="/blog/posts-output/2023-11-16-0002addtwonumber/">Add Two Number</a></li>
                         
                     </ul>
                 </div>
@@ -133,6 +102,8 @@
                 <div id="tags">
                     <h3>Tags</h3>
                     <ul>
+                        
+                        <li><a href="/blog/tags-output/leet%20code/">leet code</a></li>
                         
                         <li><a href="/blog/tags-output/cryogen/">cryogen</a></li>
                         

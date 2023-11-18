@@ -2,19 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Thinking Functionally: 0561 Array Partition</title>
+    <title>Thinking Functionally: Two Sum</title>
     
-<meta name="keywords" content="cryogen,very fetch,not fetch">
+<meta name="keywords" content="leet code,cryogen,very fetch,not fetch">
 
-<meta name="description" content="In this Clojure version, we define a function array-pair-sum that takes an array of integers nums as input and returns the maximum sum of the minimum elements in pairs.">
+<meta name="description" content="The code defines a function two-sum that takes a vector of numbers nums and a target number target. The function finds two numbers in the nums vector that add up to the target number and returns their indices as a vector.">
 
-<meta property="og:description" content="In this Clojure version, we define a function array-pair-sum that takes an array of integers nums as input and returns the maximum sum of the minimum elements in pairs.">
+<meta property="og:description" content="The code defines a function two-sum that takes a vector of numbers nums and a target number target. The function finds two numbers in the nums vector that add up to the target number and returns their indices as a vector.">
 
-<meta property="og:url" content="http://thinkingfunctionally.com/blog/posts-output/11-11-2023-0561ArrayPartition/" />
-<meta property="og:title" content="0561 Array Partition" />
+<meta property="og:url" content="http://thinkingfunctionally.com/blog/posts-output/2023-11-11-0001twosum/" />
+<meta property="og:title" content="Two Sum" />
 <meta property="og:type" content="article" />
 
-    <link rel="canonical" href="http://thinkingfunctionally.com/blog/posts-output/11-11-2023-0561ArrayPartition/">
+    <link rel="canonical" href="http://thinkingfunctionally.com/blog/posts-output/2023-11-11-0001twosum/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
           type="text/css">
@@ -65,37 +65,43 @@
 <div id="post">
     <div class="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-6">12 May 17</div>
+        <div class="col-lg-6">11 November 2023</div>
+        
+        <span class="col-lg-6 right">By: ThinkingFunctionally</span>
         
     </div>
-    <h2>0561 Array Partition</h2>
+    <h2>Two Sum</h2>
 </div>
 <div>
     
-    <pre><code class="clojure">(ns array-partition)
+    <pre><code class="clojure">(defn two-sum [nums target]
+  (let [map (zipmap nums (range))]
+    (loop [i 0]
+      (if-let [idx (get map (- target (nums i)))]
+        [i idx]
+        (if (&lt; (inc i) (count nums))
+          (recur (inc i))
+          [-1 -1]))))))
+</code></pre><p>The code defines a function <code>two-sum</code> that takes a vector of numbers <code>nums</code> and a target number <code>target</code>. The function finds two numbers in the <code>nums</code> vector that add up to the <code>target</code> number and returns their indices as a vector.</p><p>The function starts by creating a map where the keys are the numbers in the <code>nums</code> vector and the values are their corresponding indices using the <code>zipmap</code> function.</p><p>Then, it enters a loop that iterates over the indices of the <code>nums</code> vector. Inside the loop, it checks if there is an index <code>idx</code> in the map corresponding to the difference between the target number and the number at the current index <code>i</code> in the <code>nums</code> vector. If such an index exists, it means that there are two numbers in the <code>nums</code> vector that add up to the target number. In this case, it returns a vector containing the current index <code>i</code> and the found index <code>idx</code>.</p><p>If there is no such index, it checks if the current index <code>i</code> is less than the total count of numbers in the <code>nums</code> vector. If it is, it increments <code>i</code> and continues to the next iteration of the loop.</p><p>If the loop finishes without finding a solution, it returns the vector <code>[-1 -1]</code> to indicate that no two numbers in the <code>nums</code> vector add up to the target number.</p><p>Testing:</p><pre><code class="clojure">(def nums [2 7 11 15])
+(def target 9)
 
-(defn array-pair-sum [nums]
-  (let [sorted-nums (sort nums)]
-    (reduce + (map first (partition-all 2 sorted-nums)))))
-
-(println (array-pair-sum [3 5 2 3])) ; Should print 7
-</code></pre><p>In this Clojure version, we define a function <code>array-pair-sum</code> that takes an array of integers <code>nums</code> as input and returns the maximum sum of the minimum elements in pairs.</p><p>The function first sorts the input array <code>nums</code> using the <code>sort</code> function and assigns the sorted array to <code>sorted-nums</code>.</p><p>Then, using <code>partition-all 2 sorted-nums</code>, we partition <code>sorted-nums</code> into pairs. Each pair is a vector of two elements.</p><p>We use the <code>map</code> function to extract the first element (minimum value) from each pair. The result is a sequence of minimum values.</p><p>Finally, we use <code>reduce +</code> to sum up all the minimum values and return the result.</p><p>The code example prints the result of calling <code>array-pair-sum</code> with the input array <code>[1 2 3 4]</code>, which corresponds to the example given in the original Java code. The expected output is 4.</p>
+(two-sum nums target)
+; [0 1]
+</code></pre><p>In the given example, the <code>nums</code> vector is <code>[2 7 11 15]</code> and the target number is <code>9</code>. The function finds that the numbers at indices <code>0</code> and <code>1</code> in the <code>nums</code> vector (<code>2</code> and <code>7</code>) add up to <code>9</code>, so it returns the vector <code>[0 1]</code> as the result.</p>
 </div>
 
 <div id="post-tags">
     <b>Tags: </b>
     
-    <a href="/blog/tags-output/cryogen/">cryogen</a>
+    <a href="/blog/tags-output/leet%20code/">leet code</a>
     
 </div>
 
 
     <div id="prev-next">
         
-        <a href="/blog/posts-output/11-11-2023-0002addtwonumber/">&laquo; 0002 Add Two Number </a>
         
-        
-        <a class="right" href="/blog/posts-output/11-11-2023-0004medianOfTwoSortedArrays/">0004 Median of Two Sorted Arrays &raquo;</a>
+        <a class="right" href="/blog/posts-output/2023-11-17-0003LongestSubstringWitoutRepeats/">Longest Substring Without Repeats &raquo;</a>
         
     </div>
 
@@ -114,20 +120,6 @@
                     <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li>
                     <li><a href="https://carmen.la/blog/archives">Carmen's Blog</a></li>
                     
-                    <li><a href="/blog/pages-output/2023-11-11-0001twosum/">Two Sum</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-16-0002addtwonumber/">Add Two Number</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-12-0004medianOfTwoSortedArrays/">Two Sorted Arrays</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-13-0561ArrayPartition/">Array Partition</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-17-0003LongestSubstringWitoutRepeats/">Longest Substring Without Repeats</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-14-1877MinimizeMaximumPairSumInArray/">Minimize Maximum Pair Sum in Array</a></li>
-                    
-                    <li><a href="/blog/pages-output/2023-11-15-1881MinimizeMaximumPairSumInArray/">Minimize Maximum Pair Sum in Array</a></li>
-                    
                     <li><a href="/blog/pages-output/another-page/">Another Page</a></li>
                     
                 </ul>
@@ -136,11 +128,11 @@
                     <h3>Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/blog/posts-output/2020-12-03-docs/">Quick Start Guide</a></li>
+                        <li><a href="/blog/posts-output/2023-11-11-0001twosum/">Two Sum</a></li>
                         
-                        <li><a href="/blog/posts-output/2014-11-04-second-post/">Yet Another Post</a></li>
+                        <li><a href="/blog/posts-output/2023-11-17-0003LongestSubstringWitoutRepeats/">Longest Substring Without Repeats</a></li>
                         
-                        <li><a href="/blog/posts-output/2014-03-10-first-post/">A Post</a></li>
+                        <li><a href="/blog/posts-output/2023-11-16-0002addtwonumber/">Add Two Number</a></li>
                         
                     </ul>
                 </div>
@@ -149,6 +141,8 @@
                 <div id="tags">
                     <h3>Tags</h3>
                     <ul>
+                        
+                        <li><a href="/blog/tags-output/leet%20code/">leet code</a></li>
                         
                         <li><a href="/blog/tags-output/cryogen/">cryogen</a></li>
                         
